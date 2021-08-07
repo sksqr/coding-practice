@@ -1,0 +1,6 @@
+Question to ask:
+1. Can we mutate the array while processing.
+2. Approach it from front index 0 if its not working then try to approach it from last index n-1
+4. Sorting the array can solve the problem but the time complexity will be O(nlogn).
+3. Try with leftPrefixSum, leftPrefixMax, leftPrefixMin, rightPrefixSum, rightPrefixMax, rightPrefixMin,
+4. Kaden's Algorithm

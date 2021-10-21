@@ -1,0 +1,115 @@
+Given a complete binary tree (nodes missing only from last level that too from rhs) with nodes always numbered in level order 0…...N
+
+
+
+
+
+                                     0
+                            1                 2
+                         3       4
+     6
+                       7   8   9  10 11 12 13 14
+==============================
+
+                                     0
+                            1                 2
+                         3       4        5     6
+                       7   8  9 10
+
+==============================
+                       0
+                            1                 2
+                         3       4        5
+
+Inputs:
+Pointer to root0 is given int K.
+Output: yes/no
+
+0: 1
+1: 2
+2: 4
+3: 8
+
+
+
+Level n: 2^n;
+10; level log(10)=3;
+Total node: 8
+======
+Total nodes upto level (3-1); 2^0 + 2^1+2^2 = 1+2+4 = 7;
+7,8,9,10|11
+Left
+Level 1: node 1;
+7,8| 9,10
+
+
+======
+At k;
+Left child= 2k+1;
+Right child= 2k+2;
+2k+2=n
+
+
+k+1=n/2
+Parent: k= n/2-1
+10
+parent=5-1=4
+parent=2-1=1
+parent=math.ceal()=0;
+__
+n=11;
+Parent = math.ceal(n/2)-1
+parent=5
+parent=3-1=2;
+parent=1-1=0
+
+
+
+
+(Q) Find if node(k) is present.
+is_present(4) - yes
+is_present(12) - no
+
+Class Node{
+Int val;
+Node left;
+Node right;
+}
+
+public boolean is_present(int val, Node root){
+Stack<Integer> stack= new Stack();
+                  int parent = val;
+	stack.add(parent);
+	while(parent>=0){
+		parent = Math.ceil(parent/2)-1;
+			stack.add(parent);
+	}
+Node node = root;
+	while(!stack.empty() && node!=null){
+		Int  v1= stack.pop();
+		if(node.val =v1){
+			if(stack.isEmplty()){
+				Return true;
+			}
+			Int c1 = stack.peek();// handle excep
+			if(node.left!=null && node.left.val ==c1){
+				node = node.left;
+			}
+			Else if(node.right!=null && node.right.val ==c1){
+			node = node.right;
+			}
+		}
+		Else{
+    			Return false;
+    		}
+
+    		}
+    }
+    if(stack.isEmpty()){
+    Return true;
+    }
+    Return false;
+
+    }
+
+

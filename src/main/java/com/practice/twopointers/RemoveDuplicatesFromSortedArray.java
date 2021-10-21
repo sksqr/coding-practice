@@ -2,7 +2,9 @@ package com.practice.twopointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class RemoveDuplicatesFromSortedArray {
 
@@ -13,6 +15,16 @@ public class RemoveDuplicatesFromSortedArray {
 //    a.add(0);
     removeDuplicates(a);
   }
+
+
+  public static int removeDuplicatesEf(ArrayList<Integer> a) {
+    Set<Integer> set = new LinkedHashSet<>();
+    set.addAll(a);
+    a.clear();
+    a.addAll(set);
+    return a.size();
+  }
+
 
   public static int removeDuplicates(ArrayList<Integer> a) {
     int n=a.size();
